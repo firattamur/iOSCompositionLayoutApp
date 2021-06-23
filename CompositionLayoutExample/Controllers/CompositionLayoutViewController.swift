@@ -16,16 +16,59 @@ class CompositionLayoutViewController: UIViewController {
     private var contacts = [Contact]()
     private var dataSource: ContactDataSource!
     private var collectionView: UICollectionView! = nil
-
+    private var snapshot = DataSourceSnapshot()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
         self.navigationItem.title = "CompositionLayout Example"
         
-//        createData()
+        //        createData()
         configureHierarchy()
         configureDataSource()
+        setupUIRefreshControl(with: collectionView)
+        
+    }
+    
+    func setupUIRefreshControl(with collectionView: UICollectionView) {
+        
+        let refreshControl = UIRefreshControl()
+        
+        refreshControl.addTarget(self, action: #selector(handleRefresh),
+                                 for: .valueChanged)
+        
+        refreshControl.tintColor = .gray
+        collectionView.refreshControl = refreshControl
+        
+    }
+    
+    @objc func handleRefresh() {
+        
+        NetworkService.shared.downloadContactFromServer { done, fetchedContacts in
+            
+            if !done {
+                
+                print("-----------------------------------------")
+                print("- Error while fetching data from server -")
+                print("-----------------------------------------")
+                
+            }else {
+                DispatchQueue.main.async {
+                    
+                    self.snapshot.deleteAllItems()
+                    self.snapshot.appendSections([Section.main])
+                    self.snapshot.appendItems(fetchedContacts)
+                    self.dataSource.apply(self.snapshot, animatingDifferences: true)
+                    
+                }
+            }
+            
+        }
+        
+        DispatchQueue.main.async {
+            self.collectionView.refreshControl?.endRefreshing()
+        }
         
     }
     
@@ -82,10 +125,10 @@ extension CompositionLayoutViewController {
             
         })
         
-//        var snapshot = DataSourceSnapshot()
-//        snapshot.appendSections([Section.main])
-//        snapshot.appendItems(self.contacts)
-//        dataSource.apply(snapshot, animatingDifferences: false)
+        //        var snapshot = DataSourceSnapshot()
+        //        snapshot.appendSections([Section.main])
+        //        snapshot.appendItems(self.contacts)
+        //        dataSource.apply(snapshot, animatingDifferences: false)
         
     }
     

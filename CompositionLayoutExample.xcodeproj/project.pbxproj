@@ -16,6 +16,9 @@
 		011D61B2268377EA00B775F6 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011D61B1268377EA00B775F6 /* Contact.swift */; };
 		011D61B426837C3A00B775F6 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011D61B326837C3A00B775F6 /* ContactCell.swift */; };
 		011D61B726837E9400B775F6 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011D61B626837E9400B775F6 /* UIViewExtensions.swift */; };
+		011D61B92683856800B775F6 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011D61B82683856800B775F6 /* NetworkService.swift */; };
+		011D61BB2683863100B775F6 /* JSONContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011D61BA2683863100B775F6 /* JSONContact.swift */; };
+		011D61BD268389AC00B775F6 /* UIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011D61BC268389AC00B775F6 /* UIImageViewExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		011D61B1268377EA00B775F6 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		011D61B326837C3A00B775F6 /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
 		011D61B626837E9400B775F6 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		011D61B82683856800B775F6 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		011D61BA2683863100B775F6 /* JSONContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONContact.swift; sourceTree = "<group>"; };
+		011D61BC268389AC00B775F6 /* UIImageViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +110,8 @@
 			isa = PBXGroup;
 			children = (
 				011D61B1268377EA00B775F6 /* Contact.swift */,
+				011D61BA2683863100B775F6 /* JSONContact.swift */,
+				011D61B82683856800B775F6 /* NetworkService.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -112,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				011D61B626837E9400B775F6 /* UIViewExtensions.swift */,
+				011D61BC268389AC00B775F6 /* UIImageViewExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -188,10 +197,13 @@
 			files = (
 				011D61B426837C3A00B775F6 /* ContactCell.swift in Sources */,
 				011D61B2268377EA00B775F6 /* Contact.swift in Sources */,
+				011D61BB2683863100B775F6 /* JSONContact.swift in Sources */,
 				011D619E2683762400B775F6 /* CompositionLayoutViewController.swift in Sources */,
+				011D61BD268389AC00B775F6 /* UIImageViewExtensions.swift in Sources */,
 				011D619A2683762400B775F6 /* AppDelegate.swift in Sources */,
 				011D61B726837E9400B775F6 /* UIViewExtensions.swift in Sources */,
 				011D619C2683762400B775F6 /* SceneDelegate.swift in Sources */,
+				011D61B92683856800B775F6 /* NetworkService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

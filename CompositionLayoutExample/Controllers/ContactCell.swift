@@ -12,6 +12,9 @@ class ContactCell: UICollectionViewCell {
     var contact: Contact? {
         didSet {
             nameLabel.text = contact?.name
+            
+            // use nscache to download profile
+            contactImage.loadImageUsingCacheWithUrlString(urlString: contact?.image ?? "")
         }
     }
     
@@ -45,6 +48,9 @@ class ContactCell: UICollectionViewCell {
         let imageView = UIImageView(image: renderedImage)
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.layer.cornerRadius = 25
+        imageView.layer.masksToBounds = true
+        
         return imageView
         
     }()
